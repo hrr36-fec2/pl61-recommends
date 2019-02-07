@@ -4,7 +4,7 @@ class Recommends extends React.Component {
   constructor() {
     super();
     this.state = {
-      recommends: []
+      tracks: []
     }
   }
 
@@ -15,14 +15,24 @@ class Recommends extends React.Component {
   getRecommends() {
     axios.get('http://127.0.0.1:3003/recommends')
       .then(res => {
-        console.log(res.data)
-        // this.setState({ recommends: res });
+        this.setState({ tracks: res.data });
       })
       .catch(err => { console.log(err); });
   }
 
   render() {
-    return (<div>Hello world!</div>);
+    return (
+      <ul>
+        {this.state.tracks.map((ele, i) => {
+          return (
+            <li key={i}>
+              <div>{ele.title}</div>
+              <div>{ele.artist + '\ \u00B7\ ' + ele.album}</div>
+            </li>
+          )
+        })}
+      </ul>
+    );
   }
 }
 
