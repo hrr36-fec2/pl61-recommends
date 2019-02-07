@@ -24,3 +24,8 @@ coverage
 build/
 dist/
 
+# Data #
+client/parser/songs
+
+# Webpack #
+public/app.js

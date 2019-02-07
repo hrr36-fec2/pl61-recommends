@@ -6,8 +6,7 @@
 
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/teamName/pl61-recommends
 
 ## Table of Contents
 
@@ -36,4 +35,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
