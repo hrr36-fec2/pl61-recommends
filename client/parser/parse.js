@@ -1,5 +1,5 @@
 const mm = require('music-metadata');
-var fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 fs.readdir(path.join(__dirname, 'songs'), (err, data) => {
