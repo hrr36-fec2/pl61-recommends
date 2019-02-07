@@ -4,9 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/pl61-recommends
+  - https://github.com/hrr36-fec2/Eliana-playback-service
+  - https://github.com/hrr36-fec2/fren-playlist
+  - https://github.com/hrr36-fec2/pl61-recommends
 
 ## Table of Contents
 
@@ -16,14 +16,11 @@
 
 ## Usage
 
-> Some usage instructions
+A reproduction of the playlist view in the Spotify web app, implemented using React, Node.js, and MySQL.
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node 11.6.0
 
 ## Development
 
