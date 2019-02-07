@@ -1,4 +1,8 @@
 import axios from 'axios';
+import Styles from './styles';
+import Track from './track.jsx';
+
+const {List} = Styles;
 
 class Recommends extends React.Component {
   constructor() {
@@ -22,16 +26,15 @@ class Recommends extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.state.tracks.map((ele, i) => {
+      <List>
+        {this.state.tracks.map(ele => {
           return (
-            <li key={i}>
-              <div>{ele.title}</div>
-              <div>{ele.artist + '\ \u00B7\ ' + ele.album}</div>
+            <li key={ele.track_id}>
+              <Track ele={ele}/>
             </li>
           )
         })}
-      </ul>
+      </List>
     );
   }
 }
