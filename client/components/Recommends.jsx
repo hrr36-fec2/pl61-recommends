@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 class Recommends extends React.Component {
   constructor() {
     super();
@@ -6,12 +8,17 @@ class Recommends extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getRecommends();
+  }
+
   getRecommends() {
     axios.get('http://127.0.0.1:3003/recommends')
       .then(res => {
-        this.setState({ recommends: res });
+        console.log(res.data)
+        // this.setState({ recommends: res });
       })
-      .catch(err => { console.log(err) });
+      .catch(err => { console.log(err); });
   }
 
   render() {
