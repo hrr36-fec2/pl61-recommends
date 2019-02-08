@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Tracks from './tracks.jsx';
-import { Refresh, Container, Toggle, Header, Info, Arrow, Title } from './styles.js';
+import { Refresh, Container, Toggle, Header, Info, Arrow, Title, Flex } from './styles.js';
 
 export default class Recommends extends React.Component {
   constructor() {
@@ -44,9 +44,11 @@ export default class Recommends extends React.Component {
       <Container>
         <Header>
           <div>
-            <Toggle onClick={this.handleToggle.bind(this)}>
-              <Title>Recommended Songs</Title>
-              <Arrow className={this.state.class}></Arrow>
+            <Toggle>
+              <Flex onClick={this.handleToggle.bind(this)}>
+                <Title>Recommended Songs</Title>
+                <Arrow className={this.state.class}></Arrow>
+              </Flex>
             </Toggle>
             <Info>Much lorem. Such ipsum.</Info>
           </div>

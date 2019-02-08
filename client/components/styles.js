@@ -16,14 +16,18 @@ export const Header = styled.div`
   }
 `;
 
-export const Toggle = styled.div`
+export const Flex = styled.div`
   display: flex;
-  font-weight: bold;
   color: #D3D3D3;
 
   &:hover {
     color: #FFFFFF;
   }
+`;
+
+export const Toggle = styled.div`
+  display: flex;
+  font-weight: bold;
 `;
 
 export const List = styled.ul`
