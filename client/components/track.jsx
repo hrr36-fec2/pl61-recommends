@@ -1,8 +1,6 @@
-import Styles from './styles';
+import { Item, Wrap, Title, Icon, Info, Button } from './styles.js';
 
-const {Item, Wrap, Title, Icon, Info, Add} = Styles;
-
-export default class List extends React.Component {
+export default class Track extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,17 +8,23 @@ export default class List extends React.Component {
     };
   }
 
+  handlePlay() {
+    console.log('PLAY');
+  }
+
+  handleAdd() {
+    console.log('ADD');
+  }
+
   render() {
     return (
       <Item onMouseEnter={() => {this.setState({ class: 'fas fa-play' })}} onMouseLeave={() => {this.setState({ class: 'fas fa-music' })}}>
-        <Icon className={this.state.class}></Icon>
+        <Icon className={this.state.class} onClick={this.handlePlay.bind(this)}></Icon>
         <Wrap>
-          <div>
-            <Title>{this.props.ele.title}</Title>
-            <Info>{this.props.ele.artist + '\ \u00B7\ ' + this.props.ele.album}</Info>
-          </div>
-          <Add>ADD</Add>
+          <Title>{this.props.ele.title}</Title>
+          <Info>{this.props.ele.artist + ' \u00B7 ' + this.props.ele.album}</Info>
         </Wrap>
+        <Button onClick={this.handleAdd.bind(this)}>ADD</Button>
       </Item>
     );
   }
