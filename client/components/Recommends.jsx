@@ -47,7 +47,7 @@ export default class Recommends extends React.Component {
               <Title>Recommended Songs</Title>
               <Arrow className={this.state.class}></Arrow>
             </Toggle>
-            <Info>By Bob from accounting.</Info>
+            <Info>Much lorem. Such ipsum.</Info>
           </div>
           <Refresh fade={this.state.fade} onClick={this.getRecommends.bind(this)}>REFRESH</Refresh>
         </Header>
