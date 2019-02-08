@@ -1,3 +1,4 @@
+import React from 'react';
 import { Item, Wrap, Title, Icon, Info, Button } from './styles.js';
 
 export default class Track extends React.Component {

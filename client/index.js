@@ -1,3 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Recommends from './components/recommends.jsx';
 
-window.Recommends = Recommends;
+ReactDOM.render(
+  React.createElement(Recommends),
+  document.getElementById('recommends')
+);

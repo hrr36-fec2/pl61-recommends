@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from 'axios';
 import Tracks from './tracks.jsx';
 import { Refresh, Container, Toggle, Header, Info, Arrow, Title } from './styles.js';
