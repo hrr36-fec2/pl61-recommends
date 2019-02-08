@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from 'axios';
 import Tracks from './tracks.jsx';
 import { Refresh, Container, Toggle, Header, Info, Arrow, Title } from './styles.js';
@@ -47,7 +48,7 @@ export default class Recommends extends React.Component {
               <Title>Recommended Songs</Title>
               <Arrow className={this.state.class}></Arrow>
             </Toggle>
-            <Info>By Bob from accounting.</Info>
+            <Info>Much lorem. Such ipsum.</Info>
           </div>
           <Refresh fade={this.state.fade} onClick={this.getRecommends.bind(this)}>REFRESH</Refresh>
         </Header>
