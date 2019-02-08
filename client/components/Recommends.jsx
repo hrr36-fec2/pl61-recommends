@@ -1,14 +1,14 @@
 import axios from 'axios';
-import Styles from './styles';
-import Track from './track.jsx';
+import Tracks from './tracks.jsx';
+import { Refresh, Container, Toggle, Header, Info, Arrow, Title } from './styles.js';
 
-const {List} = Styles;
-
-class Recommends extends React.Component {
+export default class Recommends extends React.Component {
   constructor() {
     super();
     this.state = {
-      tracks: []
+      tracks: [],
+      fade: false,
+      class: "fas fa-caret-down"
     }
   }
 
@@ -24,19 +24,35 @@ class Recommends extends React.Component {
       .catch(err => { console.log(err); });
   }
 
+  handleToggle() {
+    if (this.state.fade) {
+      this.setState({
+        fade: false,
+        class: "fas fa-caret-down"
+      });
+    } else {
+      this.setState({
+        fade: true,
+        class: "fas fa-caret-up"
+      });
+    }
+  }
+
   render() {
     return (
-      <List>
-        {this.state.tracks.map(ele => {
-          return (
-            <li key={ele.track_id}>
-              <Track ele={ele}/>
-            </li>
-          )
-        })}
-      </List>
+      <Container>
+        <Header>
+          <div>
+            <Toggle onClick={this.handleToggle.bind(this)}>
+              <Title>Recommended Songs</Title>
+              <Arrow className={this.state.class}></Arrow>
+            </Toggle>
+            <Info>By Bob from accounting.</Info>
+          </div>
+          <Refresh fade={this.state.fade} onClick={this.getRecommends.bind(this)}>REFRESH</Refresh>
+        </Header>
+        <Tracks fade={this.state.fade} tracks={this.state.tracks}/>
+      </Container>
     );
   }
 }
-
-export default Recommends;
