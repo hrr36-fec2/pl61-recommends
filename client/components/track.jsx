@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Wrap, Title, Icon, Info, Button } from './styles.js';
+import { Item, Wrap, Title, Icon, Info, Subinfo, Button, Flex} from './styles.js';
 
 export default class Track extends React.Component {
   constructor(props) {
@@ -51,10 +51,14 @@ export default class Track extends React.Component {
   render() {
     return (
       <Item onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        <Icon className={this.state.playing ? 'fas fa-pause' : this.state.class} playing={this.state.playing} onClick={this.handlePlay}></Icon>
+        <Icon className={this.state.playing ? 'fas fa-pause' : this.state.class} playing={this.state.playing} fas={this.state.class} onClick={this.handlePlay}></Icon>
         <Wrap>
           <Title playing={this.state.playing}>{this.props.ele.title}</Title>
-          <Info playing={this.state.playing}>{this.props.ele.artist + ' \u00B7 ' + this.props.ele.album}</Info>
+          <Flex>
+            <Subinfo playing={this.state.playing}>{this.props.ele.artist}</Subinfo>
+            <Info>&nbsp; {'\u00B7'} &nbsp;</Info>
+            <Subinfo>{this.props.ele.album}</Subinfo>
+          </Flex>
         </Wrap>
         <Button onClick={this.handleAdd}>ADD</Button>
       </Item>
