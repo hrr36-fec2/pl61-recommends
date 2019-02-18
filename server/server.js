@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const url = require('url');
-const mdb = require('./db/db.js');
 const cors = require('cors');
+
+const mdb = require('./db/db.js');
 
 const app = express();
 const port = process.env.PORT || 3003;

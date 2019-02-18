@@ -88,13 +88,13 @@ export const Wrap = styled.div`
 `;
 
 export const Title = styled.div`
-  color: #FFFFFF;
+  color: ${props => props.playing ? '#66ff99' : '#FFFFFF'};
   font-size: 1rem;
   cursor: default;
 `;
 
 export const Info = styled.div`
-  color: #D3D3D3;
+  color: ${props => props.playing ? '#99ffcc' : '#D3D3D3'};;
   font-size: 0.875rem;
   cursor: default;
 `;

@@ -9,12 +9,16 @@ export default class Recommends extends React.Component {
     this.state = {
       tracks: [],
       fade: false,
-      class: 'fas fa-caret-down'
+      class: 'fas fa-caret-down',
+      playing: -1,
+      added: -1
     };
 
-    this.handleToggle = this.handleToggle.bind(this);
-    this.removeTrack = this.removeTrack.bind(this);
     this.getRecommends = this.getRecommends.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.updatePlay = this.updatePlay.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+    this.resetAdded = this.resetAdded.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +47,12 @@ export default class Recommends extends React.Component {
     }
   }
 
+  updatePlay(id) {
+    this.setState({
+      playing: id
+    });
+  }
+
   removeTrack(id) {
     let arr = this.state.tracks;
 
@@ -61,11 +71,28 @@ export default class Recommends extends React.Component {
 
     getSong()
       .then(res => {
+        let playing = this.state.playing;
+
         arr.splice(id, 1);
         arr = arr.concat(res.data);
-        this.setState({ tracks: arr });
+
+        if (playing === id) {
+          playing = -1;
+        } else if (playing > id) {
+          playing--;
+        }
+
+        this.setState({
+          tracks: arr,
+          playing,
+          added: id
+        });
       })
       .catch(err => { console.log(err); });
+  }
+
+  resetAdded() {
+    this.setState({ added: -1 });
   }
 
   render() {
@@ -83,7 +110,7 @@ export default class Recommends extends React.Component {
           </div>
           <Refresh fade={this.state.fade} onClick={this.getRecommends}>REFRESH</Refresh>
         </Header>
-        <Tracks fade={this.state.fade} tracks={this.state.tracks} removeTrack={this.removeTrack}/>
+        <Tracks fade={this.state.fade} tracks={this.state.tracks} playing={this.state.playing} added={this.state.added} resetAdded={this.resetAdded} updatePlay={this.updatePlay} removeTrack={this.removeTrack} />
       </Container>
     );
   }
