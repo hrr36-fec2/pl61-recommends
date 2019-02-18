@@ -9,8 +9,12 @@ export default class Recommends extends React.Component {
     this.state = {
       tracks: [],
       fade: false,
-      class: "fas fa-caret-down"
-    }
+      class: 'fas fa-caret-down'
+    };
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+    this.getRecommends = this.getRecommends.bind(this);
   }
 
   componentDidMount() {
@@ -18,7 +22,7 @@ export default class Recommends extends React.Component {
   }
 
   getRecommends() {
-    axios.get('http://127.0.0.1:3003/recommends')
+    axios.get('http://127.0.0.1:3003/recommends/10')
       .then(res => {
         this.setState({ tracks: res.data });
       })
@@ -29,14 +33,39 @@ export default class Recommends extends React.Component {
     if (this.state.fade) {
       this.setState({
         fade: false,
-        class: "fas fa-caret-down"
+        class: 'fas fa-caret-down'
       });
     } else {
       this.setState({
         fade: true,
-        class: "fas fa-caret-up"
+        class: 'fas fa-caret-up'
       });
     }
+  }
+
+  removeTrack(id) {
+    let arr = this.state.tracks;
+
+    const getSong = () => {
+      return axios.get('http://127.0.0.1:3003/recommends/1')
+        .then(res => {
+          for (let obj of arr) {
+            if (obj.track_id === res.data[0].track_id) {
+              return getSong();
+            }
+          }
+
+          return res;
+        });
+    };
+
+    getSong()
+      .then(res => {
+        arr.splice(id, 1);
+        arr = arr.concat(res.data);
+        this.setState({ tracks: arr });
+      })
+      .catch(err => { console.log(err); });
   }
 
   render() {
@@ -45,16 +74,16 @@ export default class Recommends extends React.Component {
         <Header>
           <div>
             <Toggle>
-              <Flex onClick={this.handleToggle.bind(this)}>
+              <Flex onClick={this.handleToggle}>
                 <Title>Recommended Songs</Title>
                 <Arrow className={this.state.class}></Arrow>
               </Flex>
             </Toggle>
-            <Info>Much lorem. Such ipsum.</Info>
+            <Info>Songs that you might like.</Info>
           </div>
-          <Refresh fade={this.state.fade} onClick={this.getRecommends.bind(this)}>REFRESH</Refresh>
+          <Refresh fade={this.state.fade} onClick={this.getRecommends}>REFRESH</Refresh>
         </Header>
-        <Tracks fade={this.state.fade} tracks={this.state.tracks}/>
+        <Tracks fade={this.state.fade} tracks={this.state.tracks} removeTrack={this.removeTrack}/>
       </Container>
     );
   }

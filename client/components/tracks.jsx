@@ -10,12 +10,12 @@ class Tracks extends React.Component {
   render() {
     return (
       <List fade={this.props.fade}>
-        {this.props.tracks.map(ele => {
+        {this.props.tracks.map((ele, id) => {
           return (
             <li key={ele.track_id}>
-              <Track ele={ele}/>
+              <Track ele={ele} id={id} removeTrack={this.props.removeTrack}/>
             </li>
-          )
+          );
         })}
       </List>
     );
