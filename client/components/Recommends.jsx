@@ -28,7 +28,10 @@ export default class Recommends extends React.Component {
   getRecommends() {
     axios.get('http://127.0.0.1:3003/recommends/10')
       .then(res => {
-        this.setState({ tracks: res.data });
+        this.setState({
+          tracks: res.data,
+          playing: -1
+        });
       })
       .catch(err => { console.log(err); });
   }
