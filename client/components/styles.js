@@ -64,7 +64,7 @@ export const Item = styled.div`
 `;
 
 export const Icon = styled.i`
-  color: #D3D3D3;
+  color: ${props => props.playing ? '#00ff00' : '#FFFFFF'};
   width: 20px;
   padding: 0.5rem;
 `;
@@ -88,13 +88,13 @@ export const Wrap = styled.div`
 `;
 
 export const Title = styled.div`
-  color: ${props => props.playing ? '#66ff99' : '#FFFFFF'};
+  color: ${props => props.playing ? '#00ff00' : '#FFFFFF'};
   font-size: 1rem;
   cursor: default;
 `;
 
 export const Info = styled.div`
-  color: ${props => props.playing ? '#99ffcc' : '#D3D3D3'};;
+  color: #D3D3D3;
   font-size: 0.875rem;
   cursor: default;
 `;
