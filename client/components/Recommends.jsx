@@ -113,7 +113,15 @@ export default class Recommends extends React.Component {
           </div>
           <Refresh fade={this.state.fade} onClick={this.getRecommends}>REFRESH</Refresh>
         </Header>
-        <Tracks fade={this.state.fade} tracks={this.state.tracks} playing={this.state.playing} added={this.state.added} resetAdded={this.resetAdded} updatePlay={this.updatePlay} removeTrack={this.removeTrack} />
+        <Tracks
+          fade={this.state.fade}
+          tracks={this.state.tracks}
+          playing={this.state.playing}
+          added={this.state.added}
+          resetAdded={this.resetAdded}
+          updatePlay={this.updatePlay}
+          removeTrack={this.removeTrack}
+        />
       </Container>
     );
   }

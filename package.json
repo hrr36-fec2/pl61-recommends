@@ -10,6 +10,9 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./client/setupTests.js"
     ]
   },
   "scripts": {
@@ -37,6 +40,7 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
+    "babel-polyfill": "^6.26.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.5",

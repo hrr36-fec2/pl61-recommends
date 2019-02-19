@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-describe('should be able to handle requests path /recommends', () => {
+describe('server', () => {
   let response;
 
   beforeAll(() => {
@@ -12,11 +12,11 @@ describe('should be able to handle requests path /recommends', () => {
       .catch(err => console.log('>>>>>>>>>> beforeAll FAILED <<<<<<<<<<'));
   });
 
-  test('should handle get requests', () => {
+  it('should handle get requests', () => {
     expect(response.status).toBe(200);
   });
 
-  test('should return an array with length of 10', () => {
+  it('should return an array with length of 10', () => {
     expect(Array.isArray(response.data)).toBe(true);
     expect(response.data.length).toBe(10);
   });

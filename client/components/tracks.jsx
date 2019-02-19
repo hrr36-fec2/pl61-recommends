@@ -13,7 +13,15 @@ class Tracks extends React.Component {
         {this.props.tracks.map((ele, id) => {
           return (
             <li key={ele.track_id}>
-              <Track ele={ele} id={id} playing={this.props.playing} added={this.props.added} resetAdded={this.props.resetAdded} updatePlay={this.props.updatePlay} removeTrack={this.props.removeTrack} />
+              <Track
+                ele={ele}
+                id={id}
+                playing={this.props.playing}
+                added={this.props.added}
+                resetAdded={this.props.resetAdded}
+                updatePlay={this.props.updatePlay}
+                removeTrack={this.props.removeTrack}
+              />
             </li>
           );
         })}

@@ -51,7 +51,12 @@ export default class Track extends React.Component {
   render() {
     return (
       <Item onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        <Icon className={this.state.playing ? 'fas fa-pause' : this.state.class} playing={this.state.playing} fas={this.state.class} onClick={this.handlePlay}></Icon>
+        <Icon
+          className={this.state.playing ? 'fas fa-pause' : this.state.class}
+          playing={this.state.playing} fas={this.state.class}
+          onClick={this.handlePlay}
+        >
+        </Icon>
         <Wrap>
           <Title playing={this.state.playing}>{this.props.ele.title}</Title>
           <Flex>
