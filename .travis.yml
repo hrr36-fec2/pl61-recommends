@@ -7,7 +7,7 @@ before_script:
   - npm run db
   - npm run seed
   - npm run build
-  - npm start
+  - npm start &
 
 script:
   - npm test
