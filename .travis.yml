@@ -1,3 +1,19 @@
 language: node_js
+
 node_js:
- - "node"
+  - "node"
+
+services:
+  - mysql
+
+before_install:
+  - npm install
+
+before_script:
+  - npm run db
+  - npm run seed
+  - npm run build
+  - npm start
+
+script:
+  - npm test

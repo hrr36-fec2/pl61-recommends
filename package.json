@@ -21,8 +21,7 @@
     "start": "nodemon server/server.js",
     "seed": "node server/db/seed.js",
     "db": "mysql -uroot -p <'server/schema.sql'",
-    "test": "jest --verbose",
-    "test2": "node server/tests/server.test.js"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "axios": "^0.18.0",

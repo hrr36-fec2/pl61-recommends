@@ -1,15 +1,17 @@
 const axios = require('axios');
 
+const port = process.env.PORT || 3003;
+
 describe('server', () => {
   let response;
 
   beforeAll(() => {
     return axios
-      .get('http://127.0.0.1:3003/recommends/10')
+      .get(`http://localhost:${port}/recommends/10`)
       .then(res => {
         response = res;
       })
-      .catch(err => console.log('>>>>>>>>>> beforeAll FAILED <<<<<<<<<<'));
+      .catch(() => console.log('>>>>>>>>>> beforeAll FAILED <<<<<<<<<<'));
   });
 
   it('should handle get requests', () => {
