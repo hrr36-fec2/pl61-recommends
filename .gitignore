@@ -32,3 +32,4 @@ public/app.js
 
 # Jest #
 client/__snapshots__
+client/client.spec.js
