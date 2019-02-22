@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`recommends should render 1`] = `
+<styles__Container>
+  <styles__Header>
+    <div>
+      <styles__Toggle>
+        <styles__Flex
+          onClick={[Function]}
+        >
+          <styles__Title>
+            Recommended Songs
+          </styles__Title>
+          <styles__Arrow
+            className="fas fa-caret-down"
+          />
+        </styles__Flex>
+      </styles__Toggle>
+      <styles__Info>
+        Songs that you might like.
+      </styles__Info>
+    </div>
+    <styles__Refresh
+      fade={false}
+      onClick={[Function]}
+    >
+      REFRESH
+    </styles__Refresh>
+  </styles__Header>
+  <Tracks
+    added={-1}
+    fade={false}
+    playing={-1}
+    removeTrack={[Function]}
+    resetAdded={[Function]}
+    tracks={Array []}
+    updatePlay={[Function]}
+  />
+</styles__Container>
+`;

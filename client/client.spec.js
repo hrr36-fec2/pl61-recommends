@@ -1,32 +1,23 @@
 import React from 'react';
-// import axios from 'axios';
-import { mount, shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import 'babel-polyfill';
 
 import Recommends from './components/recommends';
-// import Tracks from './components/tracks';
-// import Track from './components/track';
 
 describe('recommends', () => {
   it('should render', () => {
-    const component = mount(<Recommends />);
+    const component = shallow(<Recommends />);
 
     expect(component).toMatchSnapshot();
   });
+
+  it('should something', () => {
+    const wrapper = shallow(<Recommends />);
+    const instance = wrapper.instance();
+
+    jest.spyOn(instance, 'handleToggle');
+    instance.handleToggle();
+
+    expect(instance.handleToggle).toHaveBeenCalled();
+  });
 });
-
-// describe('tracks', () => {
-//   it('should render', () => {
-//     const component = shallow(<Tracks />);
-
-//     expect(component).toMatchSnapshot();
-//   });
-// });
-
-// describe('track', () => {
-//   it('should render', () => {
-//     const component = shallow(<Track />);
-
-//     expect(component).toMatchSnapshot();
-//   });
-// });

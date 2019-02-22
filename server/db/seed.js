@@ -25,7 +25,7 @@ fs.readFile(path.join(__dirname, 'featured.json'), 'utf8', (err, data) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(res);
+        process.exit();
       }
     });
   }
