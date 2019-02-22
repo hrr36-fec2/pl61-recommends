@@ -29,6 +29,3 @@ client/parser/songs
 
 # Webpack #
 public/app.js
-
-# Jest #
-client/__snapshots__
