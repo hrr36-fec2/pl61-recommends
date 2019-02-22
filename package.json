@@ -20,7 +20,7 @@
     "dev": "webpack --watch --mode development",
     "start": "nodemon server/server.js",
     "seed": "node server/db/seed.js",
-    "db": "mysql -uroot -p <'server/schema.sql'",
+    "db": "mysql -uroot <'server/schema.sql'",
     "test": "jest --verbose"
   },
   "dependencies": {
