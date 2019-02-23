@@ -14,6 +14,7 @@ export default class Recommends extends React.Component {
       added: -1
     };
 
+    this.host = 'http://recommends.pgmqfpk9kk.us-west-2.elasticbeanstalk.com';
     this.getRecommends = this.getRecommends.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.updatePlay = this.updatePlay.bind(this);
@@ -22,11 +23,12 @@ export default class Recommends extends React.Component {
   }
 
   componentDidMount() {
+    console.log(process.env.RDS_HOSTNAME);
     this.getRecommends();
   }
 
   getRecommends() {
-    axios.get('http://127.0.0.1:3003/recommends/10')
+    axios.get(this.host + '/recommends/10')
       .then(res => {
         this.setState({
           tracks: res.data,
@@ -60,7 +62,7 @@ export default class Recommends extends React.Component {
     let arr = this.state.tracks;
 
     const getSong = () => {
-      return axios.get('http://127.0.0.1:3003/recommends/1')
+      return axios.get(this.host + '/recommends/1')
         .then(res => {
           for (let obj of arr) {
             if (obj.track_id === res.data[0].track_id) {
