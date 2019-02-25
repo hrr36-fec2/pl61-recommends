@@ -129,6 +129,12 @@ export const Button = styled.button`
   min-height: 30px;
   font-size: 0.75rem;
 
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+
   &:hover {
     border-color: #FFFFFF;
   }
@@ -146,12 +152,6 @@ export const Button = styled.button`
 export const Refresh = styled(Button)`
   min-width: 100px;
   min-height: 40px;
-
-  -o-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
 
   opacity: ${props => props.fade ? 0 : 1};
   visibility: ${props => props.fade ? 'hidden' : 'visible'};
