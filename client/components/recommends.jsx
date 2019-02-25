@@ -33,15 +33,26 @@ export default class Recommends extends React.Component {
       });
   }
 
-  getRecommends() {
-    axios.get('./recommends/10')
-      .then(res => {
-        this.setState({
-          tracks: res.data,
-          playing: -1
-        });
-      })
-      .catch(err => console.log(err));
+  getRecommends(e) {
+    if (e && e.shiftKey && e.altKey) {
+      axios.delete('./recommends')
+        .then(res => {
+          this.setState({
+            tracks: [],
+            playing: -1
+          });
+        })
+        .catch(err => console.log(err));
+    } else {
+      axios.get('./recommends/10')
+        .then(res => {
+          this.setState({
+            tracks: res.data,
+            playing: -1
+          });
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   handleToggle() {
