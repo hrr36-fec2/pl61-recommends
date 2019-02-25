@@ -14,7 +14,6 @@ export default class Recommends extends React.Component {
       added: -1
     };
 
-    this.host = 'http://recommends.pgmqfpk9kk.us-west-2.elasticbeanstalk.com';
     this.getRecommends = this.getRecommends.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.updatePlay = this.updatePlay.bind(this);
@@ -23,19 +22,26 @@ export default class Recommends extends React.Component {
   }
 
   componentDidMount() {
-    console.log(process.env.RDS_HOSTNAME);
-    this.getRecommends();
+    axios.post('./recommends')
+      .then(res => {
+        if (res.data === 'seeded') {
+          this.getRecommends();
+        }
+      })
+      .catch(() => {
+        console.error('Database not seeded.');
+      });
   }
 
   getRecommends() {
-    axios.get(this.host + '/recommends/10')
+    axios.get('./recommends/10')
       .then(res => {
         this.setState({
           tracks: res.data,
           playing: -1
         });
       })
-      .catch(err => { console.log(err); });
+      .catch(err => console.log(err));
   }
 
   handleToggle() {
@@ -62,7 +68,7 @@ export default class Recommends extends React.Component {
     let arr = this.state.tracks;
 
     const getSong = () => {
-      return axios.get(this.host + '/recommends/1')
+      return axios.get('./recommends/1')
         .then(res => {
           for (let obj of arr) {
             if (obj.track_id === res.data[0].track_id) {
