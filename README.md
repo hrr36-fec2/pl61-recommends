@@ -34,6 +34,8 @@ ReactDOM.render(
 
 Front end built with React and styled-components. Server uses Node.js with Express. Database implemented using MySQL.
 
+*The app will auto-seed the database on load if no database with the name 'hrr36_fec2' is detected. Clicking the 'Refresh' button on the page while holding 'alt' and 'shift' keys will drop existing instance of the 'hrr36_fec2' database. Refresh the page to re-seed.*
+
 ### Installing Dependencies
 
 From within the root directory:
@@ -42,7 +44,6 @@ From within the root directory:
 npm install -g webpack
 npm install
 
-npm run db
 npm run seed
 npm run build
 npm start
