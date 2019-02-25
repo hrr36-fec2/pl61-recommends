@@ -1,6 +1,6 @@
 # Scootify (Recommended Tracks Component)
 
-  Scootify is a music streaming service modeled after Spotify. This is the app responsible for the recommended tracks component
+  Scootify is a music streaming service modeled after Spotify. This is the app responsible for the recommended tracks component.
 
 ## Related Projects
 
